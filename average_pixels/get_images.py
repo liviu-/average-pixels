@@ -47,7 +47,7 @@ def save_images(term, count):
                 filename="_".join(term.split()) + str(i),
                 ext=img['encodingFormat'])
         try:
-            download_image(img['contentUrl'], name)
+            download_image(img['thumbnailUrl'], name)
             filenames.append(name)
         except urllib.error.HTTPError:
             pass

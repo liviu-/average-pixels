@@ -35,3 +35,7 @@ The application uses [Bing Search API](https://www.microsoft.com/cognitive-servi
     $ average_pixels "insects" --count 30
 
 ![just_give_me_some_random_photo](average_pixels/outputs/insects.jpg)
+
+    $ average_pixels "existing_dir" --dir /tmp/average_images --ofset 40
+
+![just_give_me_some_random_photo](average_pixels/outputs/existing_dir.jpg)
