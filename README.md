@@ -1,4 +1,4 @@
-# Average Images
+# Average Pixels
 
 ![black_cats](average_pixels/outputs/black_cats.jpg)
 
