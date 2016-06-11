@@ -1,20 +1,33 @@
 # Average Pixels
 
-- Needs [Bing Search API key](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api)
+## Overview
+Command line tool which takes search terms as inputs, and outputs a JPEG combining multiple images related to the terms provided.
 
-## Example outputs:
+## Installation
+
+    $ pip install average_pixels
+    
+## Configuration
+The application uses [Bing Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api) to search for images so it requires the user to have an API key activated for their search service. Once obtained, the key may be provided when prompted by the application, or in `~/.average_pixels_api`. The expected format is just the API string with no other characters in the file.
+
+## Example usage:
+
+    $ average_pixels "black cats"
+    
 ![black_cats](average_pixels/outputs/black_cats.jpg)
 
-    $ python average_pixels.py "black cats"
-  
+    $ average_pixels "white cat"
+    
 ![white_cat](average_pixels/outputs/white_cat.JPEG)
 
-    $ python average_pixels.py "white cat"
+    $ average_pixels "green field blue sky"
     
 ![green_field_blue_sky](average_pixels/outputs/green_field_blue_sky.JPEG)
 
-    $ python average_pixels.py "green field blue sky"
-    
+    $ average_pixels "just give me some random photo"
+
 ![just_give_me_some_random_photo](average_pixels/outputs/just_give_me_some_random_photo.JPEG)
 
-    $ python average_pixels.py "just give me some random photo"
+    $ average_pixels "noo"
+
+![just_give_me_some_random_photo](average_pixels/outputs/no.JPEG)
