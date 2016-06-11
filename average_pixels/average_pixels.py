@@ -16,7 +16,9 @@ def average_images(filenames):
     images = [scipy.misc.imread(filename, mode="RGB")
               for filename in filenames]
     resized_images = resize_images(images)
-    return np.mean(resized_images, axis=0)
+
+    weights = np.random.dirichlet(np.ones(len(filenames)))
+    return np.average(resized_images, axis=0, weights=weights)
 
 def resize_images(images):
     return [scipy.misc.imresize(img, (WIDTH, HEIGHT)) for img in images]
