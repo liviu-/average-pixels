@@ -18,16 +18,20 @@ The application uses [Bing Search API](https://www.microsoft.com/cognitive-servi
 
     $ average_pixels "white cat"
     
-![white_cat](average_pixels/outputs/white_cat.JPEG)
+![white_cat](average_pixels/outputs/white_cat.jpg)
 
     $ average_pixels "green field blue sky"
     
-![green_field_blue_sky](average_pixels/outputs/green_field_blue_sky.JPEG)
+![green_field_blue_sky](average_pixels/outputs/green_field_blue_sky.jpg)
 
     $ average_pixels "just give me some random photo"
 
-![just_give_me_some_random_photo](average_pixels/outputs/just_give_me_some_random_photo.JPEG)
+![just_give_me_some_random_photo](average_pixels/outputs/just_give_me_some_random_photo.jpg)
 
-    $ average_pixels "noo"
+    $ average_pixels "no"
 
-![just_give_me_some_random_photo](average_pixels/outputs/no.JPEG)
+![just_give_me_some_random_photo](average_pixels/outputs/no.jpg)
+
+    $ average_pixels "insects" --count 30
+
+![just_give_me_some_random_photo](average_pixels/outputs/insects.jpg)

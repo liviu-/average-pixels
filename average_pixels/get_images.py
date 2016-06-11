@@ -5,16 +5,14 @@ import requests
 
 
 URL = "https://bingapis.azure-api.net/api/v5/images/search"
-NUMBER_OF_IMAGES = 10
 DIR = '/tmp/average_images'
 
-def search_images(term, api_key):
-    params = {"q": term, "count":NUMBER_OF_IMAGES}
+def search_images(term, count, api_key):
+    params = {"q": term, "count": count}
     headers = {'ocp-apim-subscription-key': api_key}
     response = requests.request("GET", URL,
                                 headers=headers,
                                 params=params)
-
     return response.json()['value']
 
 def download_image(url, filename):
@@ -32,9 +30,9 @@ def get_api_key():
     return api_key
 
 
-def save_images(term):
+def save_images(term, count):
     api_key = get_api_key()
-    images = search_images(term, api_key)
+    images = search_images(term, count, api_key)
     filenames = []
 
     if not os.path.exists(DIR):
