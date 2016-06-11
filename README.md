@@ -47,3 +47,7 @@ The application uses [Bing Search API](https://www.microsoft.com/cognitive-servi
     $ average_pixels "jackson pollock painting" --count 10 --offset 30
 
 ![jackson_polloc](average_pixels/outputs/jackson_pollock_painting.jpg)
+
+    $ average_pixels "green" --count 100
+
+![green](average_pixels/outputs/green.jpg)
