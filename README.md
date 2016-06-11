@@ -30,20 +30,20 @@ The application uses [Bing Search API](https://www.microsoft.com/cognitive-servi
 
     $ average_pixels "no"
 
-![just_give_me_some_random_photo](average_pixels/outputs/no.jpg)
+![no](average_pixels/outputs/no.jpg)
 
     $ average_pixels "insects" --count 30
 
-![just_give_me_some_random_photo](average_pixels/outputs/insects.jpg)
+![insects](average_pixels/outputs/insects.jpg)
 
     $ average_pixels "existing_dir" --dir /tmp/average_images --offset 40
 
-![just_give_me_some_random_photo](average_pixels/outputs/existing_dir.jpg)
+![existing_dir](average_pixels/outputs/existing_dir.jpg)
 
     $ average_pixels "turner" --count 20
 
-![just_give_me_some_random_photo](average_pixels/outputs/turner.jpg)
+![turner](average_pixels/outputs/turner.jpg)
 
     $ average_pixels "jackson pollock painting" --count 10 --offset 30
 
-![just_give_me_some_random_photo](average_pixels/outputs/jackson_pollock_painting.jpg)
+![jackson_polloc](average_pixels/outputs/jackson_pollock_painting.jpg)
