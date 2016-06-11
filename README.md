@@ -1,5 +1,8 @@
 # Average Pixels
 
+- Needs [Bing Search API key](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api)
+
+## Example outputs:
 ![black_cats](average_pixels/outputs/black_cats.jpg)
 
     $ python average_pixels.py "black cats"
