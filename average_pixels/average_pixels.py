@@ -13,6 +13,7 @@ from . import SAVE_DIR
 WIDTH = 500
 HEIGHT = 500
 EXTENSION = "jpg"
+MAX_INTENSITY = 255
 
 
 def average_images(filenames):
@@ -60,7 +61,7 @@ def get_args():
 
 
 def offset_image(image, offset):
-    return np.clip(image + offset, 0, 255)
+    return np.clip(image + offset, 0, MAX_INTENSITY)
 
 def delete_images():
     shutil.rmtree(SAVE_DIR)
