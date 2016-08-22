@@ -8,6 +8,7 @@ setup(name='average_pixels',
       url='https://github.com/liviu-/average-pixels',
       license='MIT',
       packages=['average_pixels'],
+      include_package_data=True,
       install_requires=[
           'numpy',
           'scipy',
