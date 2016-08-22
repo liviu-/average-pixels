@@ -10,10 +10,15 @@ Command line tool which takes search terms as inputs, and outputs a JPEG combini
 ## Configuration
 The application uses [Bing Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api) to search for images so it requires the user to have an API key activated for their search service. To obtain one:
 
-    - [Create a Microsoft account](https://signup.live.com/signup) if you don't have one
+- [Create a Microsoft account](https://signup.live.com/signup) if you don't have one
+- Get an API key for the [Bing Image Search Service](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api)
     
     
-    Once obtained, the key may be provided when prompted by the application, or in `~/.average_pixels_api`. The expected format is just the API string with no other characters in the file.
+Once obtained, the key may be provided through various methods:
+
+- When prompted by the application
+- By storing it in `~/.average_pixels_api`
+- Or via the `AVERAGE_PIXELS_API` environment variable (e.g. `$ export AVERAGE_PIXELS_API=$key`)
 
 ## Example usage:
 

@@ -5,7 +5,9 @@ import requests
 
 from . import SAVE_DIR
 
-URL = "https://bingapis.azure-api.net/api/v5/images/search"
+URL = 'https://bingapis.azure-api.net/api/v5/images/search'
+API_FILE = '.average_pixels_api'
+API_ENVIRON = 'AVERAGE_PIXELS_API'
 
 def search_images(term, count, api_key):
     params = {"q": term, "count": count}
@@ -21,11 +23,14 @@ def download_image(url, filename):
 def get_api_key():
     try:
         api_key_file = os.path.join(
-            os.path.expanduser('~'), ".average_pixels_api")
+            os.path.expanduser('~'), API_FILE)
         with open(api_key_file, 'r') as f:
             api_key = f.read().replace('\n','')
     except FileNotFoundError:
-        api_key = input("Please insert your API key: ")
+        try:
+            api_key = os.environ[API_ENVIRON]
+        except KeyError:
+            api_key = input("Please insert your API key: ")
 
     return api_key
 
