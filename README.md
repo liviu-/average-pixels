@@ -1,4 +1,4 @@
-# Average Pixels
+# Average Pixels [![Build Status](https://travis-ci.org/liviu-/average-pixels.svg?branch=develop)](https://travis-ci.org/liviu-/average-pixels)
 
 ## Overview
 Command line tool which takes search terms as inputs, and outputs a JPEG combining multiple images related to the terms provided.
