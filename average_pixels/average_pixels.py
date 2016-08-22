@@ -60,7 +60,7 @@ def get_args():
 
 
 def offset_image(image, offset):
-    return image + offset
+    return np.clip(image + offset, 0, 255)
 
 def delete_images():
     shutil.rmtree(SAVE_DIR)
@@ -76,3 +76,6 @@ def main():
     filename = save_image(new_image, args)
     delete_images()
     print("{} saved in current directory.".format(filename))
+
+if __name__ == '__main__':
+    main()
