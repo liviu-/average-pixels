@@ -2,11 +2,13 @@
 
 import glob
 import argparse
+import shutil
 
 import numpy as np
 import scipy.misc
 
 from .get_images import save_images
+from . import SAVE_DIR
 
 WIDTH = 500
 HEIGHT = 500
@@ -60,6 +62,9 @@ def get_args():
 def offset_image(image, offset):
     return image + offset
 
+def delete_images():
+    shutil.rmtree(SAVE_DIR)
+
 def main():
     args = get_args()
     if args.dir:
@@ -69,4 +74,5 @@ def main():
     new_image = average_images(filenames)
     new_image = offset_image(new_image, args.offset)
     filename = save_image(new_image, args)
+    delete_images()
     print("{} saved in current directory.".format(filename))

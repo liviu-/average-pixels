@@ -3,9 +3,9 @@ import urllib
 import urllib.error
 import requests
 
+from . import SAVE_DIR
 
 URL = "https://bingapis.azure-api.net/api/v5/images/search"
-DIR = '/tmp/average_images'
 
 def search_images(term, count, api_key):
     params = {"q": term, "count": count}
@@ -35,15 +35,14 @@ def save_images(term, count):
     images = search_images(term, count, api_key)
     filenames = []
 
-    if not os.path.exists(DIR):
-        os.makedirs(DIR)
-
+    if not os.path.exists(SAVE_DIR):
+        os.makedirs(SAVE_DIR)
 
     for i, img in enumerate(images):
         if img['encodingFormat'] == 'unknown':
             continue
         name = "{path}/{filename}.{ext}".format(
-                path=DIR,
+                path=SAVE_DIR,
                 filename="_".join(term.split()) + str(i),
                 ext=img['encodingFormat'])
         try:
