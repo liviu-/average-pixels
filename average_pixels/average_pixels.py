@@ -31,10 +31,11 @@ def resize_images(images):
 
 
 def save_image(new_image, args):
-    scipy.misc.imsave("{output_filename}.{ext}".format(
-            output_filename='_'.join(args.terms.split()),
-            ext=EXTENSION),
-        new_image)
+    filename = '{output_filename}.{ext}'.format(
+            output_filename = '_'.join(args.terms.split()),
+            ext=EXTENSION)
+    scipy.misc.imsave(filename, new_image)
+    return filename
 
 
 def get_args():
@@ -67,9 +68,5 @@ def main():
         filenames = save_images(args.terms, args.count)
     new_image = average_images(filenames)
     new_image = offset_image(new_image, args.offset)
-    save_image(new_image, args)
-    print("Image saved in current directory.")
-
-if __name__ == '__main__':
-    main()
-    
+    filename = save_image(new_image, args)
+    print("{} saved in current directory.".format(filename))
