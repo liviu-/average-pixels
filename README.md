@@ -1,11 +1,12 @@
-# Average Pixels
+# Average Pixels [![Build Status](https://travis-ci.org/liviu-/average-pixels.svg?branch=develop)](https://travis-ci.org/liviu-/average-pixels)
 
 ## Overview
 Command line tool which takes search terms as inputs, and outputs a JPEG combining multiple images related to the terms provided.
 
 ## Installation
 
-    $ pip3 install average_pixels
+    $ git clone https://github.com/liviu-/average-pixels
+    $ pip3 install average_pixels/
     
 ## Configuration
 The application uses [Bing Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api) to search for images so it requires the user to have an API key activated for their search service. To obtain one:
