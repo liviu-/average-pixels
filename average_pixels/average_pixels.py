@@ -34,28 +34,39 @@ def resize_images(images):
 
 
 def save_image(new_image, args):
+    output = args.output or '_'.join(args.terms.split())
     filename = '{output_filename}.{ext}'.format(
-            output_filename = '_'.join(args.terms.split()),
+            output_filename = output,
             ext=EXTENSION)
     scipy.misc.imsave(filename, new_image)
     return filename
 
 
 def get_args():
-    parser = argparse.ArgumentParser(
-        description="Average multiple images")
-    parser.add_argument(
+    parser = argparse.ArgumentParser( description="Average multiple images")
+    subparsers = parser.add_subparsers(dest='mode',
+            help='Use images from a local dir or download new images')
+    subparsers.required = True
+
+    parser_local = subparsers.add_parser('local', help='Directory to combine images from')
+    parser_local.add_argument( 'dir', type=str,
+        help='dir to fetch images from')
+
+    parser_download = subparsers.add_parser('download',
+            help="Keywords for images to search for and filename")
+    parser_download.add_argument(
             "terms", type=str,
             help="Keywords for images to search for and filename")
-    parser.add_argument(
+    parser_download.add_argument(
         '--count', '-c', type=int,
         default=10, help='number of photos to be combined')
-    parser.add_argument(
-        '--dir', '-d', type=str,
-        help='dir to fetch images from')
-    parser.add_argument(
+    parser_download.add_argument(
         '--offset', '-o', type=int,
         default=0, help='odd a value to all pixels')
+
+    parser.add_argument(
+        '--output', '-o', type=str,
+        help='file to output the image to')
 
     return parser.parse_args()
 
@@ -68,7 +79,7 @@ def delete_images():
 
 def main():
     args = get_args()
-    if args.dir:
+    if args.mode == 'local':
         filenames = glob.glob(args.dir + "*")
     else:
         filenames = save_images(args.terms, args.count)
