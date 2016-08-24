@@ -64,7 +64,12 @@ def get_local_files(directory):
     Yields:
         str: path to an image
     """
-    for f in os.listdir(directory):
+    try:
+        dir_contents = os.listdir(directory)
+    except FileNotFoundError:
+        sys.exit('Directory not found')
+
+    for f in dir_contents:
         if f.lower().endswith(IMAGE_EXTENSIONS):
             yield os.path.join(directory, f)
 
