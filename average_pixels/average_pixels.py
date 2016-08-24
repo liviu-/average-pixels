@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 import argparse
 import shutil
 
@@ -16,6 +17,7 @@ HEIGHT = 500
 EXTENSION = "jpg"
 MAX_INTENSITY = 255
 OUTPUT_DEFAULT = 'output'
+IMAGE_EXTENSIONS = ('jpg', 'jpeg', 'png')
 
 
 def average_images(filenames):
@@ -53,7 +55,16 @@ def delete_images():
         pass
 
 def get_local_files(directory):
-    return [os.path.join(directory, f) for f in os.listdir(directory)]
+    """Return only files that may be images
+
+    Only checks for extension -- no magic.
+
+    Yields:
+        str: path to an image
+    """
+    for f in os.listdir(directory):
+        if f.lower().endswith(IMAGE_EXTENSIONS):
+            yield os.path.join(directory, f)
 
 def main():
     args = get_args()
