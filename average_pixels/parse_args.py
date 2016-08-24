@@ -10,7 +10,7 @@ def get_args():
     # Parent parser
     parent_parser = argparse.ArgumentParser(add_help=False)
     parent_parser.add_argument(
-        '--output', '-o', type=str,
+        '--output', '-o', type=str, default='output',
        help='file to output the image to')
     parent_parser.add_argument(
         '--offset', '-f', type=int,

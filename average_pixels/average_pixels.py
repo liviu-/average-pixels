@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import glob
+import os
 import argparse
 import shutil
 
@@ -15,6 +15,7 @@ WIDTH = 500
 HEIGHT = 500
 EXTENSION = "jpg"
 MAX_INTENSITY = 255
+OUTPUT_DEFAULT = 'output'
 
 
 def average_images(filenames):
@@ -35,7 +36,7 @@ def resize_images(images):
 
 
 def save_image(new_image, args):
-    output = args.output or '_'.join(args.terms.split())
+    output = args.output or '_'.join(args.terms.split()) or OUTPUT_DEFAULT
     filename = '{output_filename}.{ext}'.format(
             output_filename = output,
             ext=EXTENSION)
@@ -46,12 +47,18 @@ def offset_image(image, offset):
     return np.clip(image + offset, 0, MAX_INTENSITY)
 
 def delete_images():
-    shutil.rmtree(SAVE_DIR)
+    try:
+        shutil.rmtree(SAVE_DIR)
+    except FileNotFoundError:
+        pass
+
+def get_local_files(directory):
+    return [os.path.join(directory, f) for f in os.listdir(directory)]
 
 def main():
     args = get_args()
     if args.mode == 'local':
-        filenames = glob.glob(args.dir + "*")
+        filenames = get_local_files(args.dir)
     else:
         filenames = save_images(args.terms, args.count)
     new_image = average_images(filenames)
