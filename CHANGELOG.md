@@ -5,13 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/) to the extent that a command line tool can do that.
 
-## [Unreleased]
+## [0.1.0dev]
 
 ### Changed
-- Update API 
+- Updated API to allow different modes and shared arguments. For more information, `$ average_pixels --help`, `$ average_pixels download --help`, and `$ average_pixels local --help`
 
 ## 0.0.1 - 2016-08-23
 
 Initial stable release
 
-[Unreleased]: https://github.com/liviu-/average-pixels/compare/v0.0.1...HEAD
+[0.1.0dev]: https://github.com/liviu-/average-pixels/compare/v0.0.1...HEAD
