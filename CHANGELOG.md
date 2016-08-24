@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 ## [0.1.0dev]
 
 ### Changed
-- Updated API to allow different modes and shared arguments. For more information, `$ average_pixels --help`, `$ average_pixels download --help`, and `$ average_pixels local --help`
+- Updated API to allow different modes and shared arguments. For more information, `$ average_pixels --help`, `$ average_pixels download --help`, and `$ average_pixels local --help`.
+
+## Fixed
+- Fixed some bugs with the `local` mode where output value was missing, or trailing slash was missing from the directory name.
 
 ## 0.0.1 - 2016-08-23
 
