@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import glob
+import os
+import sys
 import argparse
 import shutil
 
@@ -8,12 +9,15 @@ import numpy as np
 import scipy.misc
 
 from .get_images import save_images
+from .parse_args import get_args
 from . import SAVE_DIR
 
 WIDTH = 500
 HEIGHT = 500
 EXTENSION = "jpg"
 MAX_INTENSITY = 255
+OUTPUT_DEFAULT = 'output'
+IMAGE_EXTENSIONS = ('jpg', 'jpeg', 'png')
 
 
 def average_images(filenames):
@@ -24,6 +28,8 @@ def average_images(filenames):
         # Some images are corrupted
         except OSError:
             pass
+    if not images:
+        sys.exit('No images found in the directory')
     resized_images = resize_images(images)
     weights = np.random.dirichlet(np.ones(len(resized_images)))
     return np.average(resized_images, axis=0, weights=weights)
@@ -34,53 +40,43 @@ def resize_images(images):
 
 
 def save_image(new_image, args):
-    output = args.output or '_'.join(args.terms.split())
+    output = args.output or '_'.join(args.terms.split()) or OUTPUT_DEFAULT
     filename = '{output_filename}.{ext}'.format(
             output_filename = output,
             ext=EXTENSION)
     scipy.misc.imsave(filename, new_image)
     return filename
 
-
-def get_args():
-    parser = argparse.ArgumentParser( description="Average multiple images")
-    subparsers = parser.add_subparsers(dest='mode',
-            help='Use images from a local dir or download new images')
-    subparsers.required = True
-
-    parser_local = subparsers.add_parser('local', help='Directory to combine images from')
-    parser_local.add_argument( 'dir', type=str,
-        help='dir to fetch images from')
-
-    parser_download = subparsers.add_parser('download',
-            help="Keywords for images to search for and filename")
-    parser_download.add_argument(
-            "terms", type=str,
-            help="Keywords for images to search for and filename")
-    parser_download.add_argument(
-        '--count', '-c', type=int,
-        default=10, help='number of photos to be combined')
-    parser_download.add_argument(
-        '--offset', '-o', type=int,
-        default=0, help='odd a value to all pixels')
-
-    parser.add_argument(
-        '--output', '-o', type=str,
-        help='file to output the image to')
-
-    return parser.parse_args()
-
-
 def offset_image(image, offset):
     return np.clip(image + offset, 0, MAX_INTENSITY)
 
 def delete_images():
-    shutil.rmtree(SAVE_DIR)
+    try:
+        shutil.rmtree(SAVE_DIR)
+    except FileNotFoundError:
+        pass
+
+def get_local_files(directory):
+    """Return only files that may be images
+
+    Only checks for extension -- no magic.
+
+    Yields:
+        str: path to an image
+    """
+    try:
+        dir_contents = os.listdir(directory)
+    except FileNotFoundError:
+        sys.exit('Directory not found')
+
+    for f in dir_contents:
+        if f.lower().endswith(IMAGE_EXTENSIONS):
+            yield os.path.join(directory, f)
 
 def main():
     args = get_args()
     if args.mode == 'local':
-        filenames = glob.glob(args.dir + "*")
+        filenames = get_local_files(args.dir)
     else:
         filenames = save_images(args.terms, args.count)
     new_image = average_images(filenames)
