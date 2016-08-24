@@ -1,0 +1,2 @@
+include LICENSE .travis.yml requirements.txt README.md
+recursive-include tests *.py

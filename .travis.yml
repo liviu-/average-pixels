@@ -1,0 +1,21 @@
+language:
+    - python
+python:
+    - 3.4
+    - 3.5
+    - 3.5-dev
+before_install:
+    - sudo apt-get install gfortran libopenblas-dev liblapack-dev
+    - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+    - chmod +x miniconda.sh
+    - "./miniconda.sh -b"
+    - export PATH=/home/travis/miniconda2/bin:$PATH
+    - conda update --yes conda
+install:
+    - conda install --yes python numpy scipy
+    - pip3 install .
+script:
+    - py.test
+env:
+  global:
+    secure: jAD7+Hv4920NjmG4SzfZfEQgFbsbLf49/GQbrvEOwh3e6V6NGaRUkF8weJA3Gi58i+lRccQiC6KgkSBWZ6+h1BVnIV959kqRF1EMpWc3W/iO93/GCKigkSQL8rWK+raC5kZv5PqAb/iDkBcsY2cXE3CTP3h5apmDvBuXEqPeCed5BNyY1pPr2inuCxp/NrFL7Gt4jVHw9DUUjDZygvwZr99BuvWXkghj7trMoRfRltGuFIB9hDFhduET21SJnY8457969FwL15ZQtwAF/RkWjCZ07nr9rem9GgxMDeCx9gGTE3TSqsskiOsOAN+k/kS2vU2vN8Zbl32iuCfnewMx3G6/lRs1UH5/wOuS9jVoT09LF62SW74f23X5vgzXQP1tCTgp2a9qnkWK47UVAD2JMntAKaa1dLcV8pKIlNvXyzuy5HnIylXKtQIPZU64akd6VlUnXM51p05fI8+QzkWUIUU9/do1K8fvErpBVId8Svsw86sKlbLi3184nBvCjkA4fdMkEU//Fl4t0zoP6cqnsKUQdmpG1Tf7jDAWh0XzlzQIw5iYJHfY487xF8XsQ1PuUuw8GaQ4GHMbrLGqctGwhnfluKPza/fARd54GHnnWDIonI1uLvj6/KoTvmsjRjTVkBe/I96ORmgiKnyhAXR67SJijL9JH2qi5+4ZcXU1TBo=
