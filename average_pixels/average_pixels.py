@@ -28,6 +28,8 @@ def average_images(filenames):
         # Some images are corrupted
         except OSError:
             pass
+    if not images:
+        sys.exit('No images found in the directory')
     resized_images = resize_images(images)
     weights = np.random.dirichlet(np.ones(len(resized_images)))
     return np.average(resized_images, axis=0, weights=weights)
