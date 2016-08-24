@@ -8,6 +8,7 @@ import numpy as np
 import scipy.misc
 
 from .get_images import save_images
+from .parse_args import get_args
 from . import SAVE_DIR
 
 WIDTH = 500
@@ -40,36 +41,6 @@ def save_image(new_image, args):
             ext=EXTENSION)
     scipy.misc.imsave(filename, new_image)
     return filename
-
-
-def get_args():
-    parser = argparse.ArgumentParser( description="Average multiple images")
-    subparsers = parser.add_subparsers(dest='mode',
-            help='Use images from a local dir or download new images')
-    subparsers.required = True
-
-    parser_local = subparsers.add_parser('local', help='Directory to combine images from')
-    parser_local.add_argument( 'dir', type=str,
-        help='dir to fetch images from')
-
-    parser_download = subparsers.add_parser('download',
-            help="Keywords for images to search for and filename")
-    parser_download.add_argument(
-            "terms", type=str,
-            help="Keywords for images to search for and filename")
-    parser_download.add_argument(
-        '--count', '-c', type=int,
-        default=10, help='number of photos to be combined')
-    parser_download.add_argument(
-        '--offset', '-o', type=int,
-        default=0, help='odd a value to all pixels')
-
-    parser.add_argument(
-        '--output', '-o', type=str,
-        help='file to output the image to')
-
-    return parser.parse_args()
-
 
 def offset_image(image, offset):
     return np.clip(image + offset, 0, MAX_INTENSITY)
