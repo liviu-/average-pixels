@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(name='average_pixels',
-      version='0.0.1',
+      version='0.1.0dev',
       description='Average pixels from multiple images off Bing Image Search',
       url='https://github.com/liviu-/average-pixels',
       license='MIT',
