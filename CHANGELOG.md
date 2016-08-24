@@ -21,4 +21,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 
 Initial stable release
 
-[0.1.0dev]: https://github.com/liviu-/average-pixels/compare/v0.0.1...HEAD
+[0.1.0]: https://github.com/liviu-/average-pixels/compare/v0.0.1...v0.1.0
