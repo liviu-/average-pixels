@@ -1,2 +1,3 @@
-include LICENSE .travis.yml requirements.txt README.md
+include LICENSE .travis.yml requirements.txt README.md CHANGELOG.md
 recursive-include tests *.py
+recursive-include images *
