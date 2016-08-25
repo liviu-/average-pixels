@@ -13,8 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 
 ## Fixed
 - Fixed some bugs with the `local` mode where output value was missing, or trailing slash was missing from the directory name.
-- Output helpful message if no images found in `local` mode.
-- Output helpful message if directory does not exist in `local` mode.
+- Output helpful message if:
+    - no images found in `local` mode.
+    - directory does not exist in `local` mode.
+    - directory is a file
 
 
 ## 0.0.1 - 2016-08-23

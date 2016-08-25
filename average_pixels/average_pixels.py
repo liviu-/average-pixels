@@ -68,6 +68,8 @@ def get_local_files(directory):
         dir_contents = os.listdir(directory)
     except FileNotFoundError:
         sys.exit('Directory not found')
+    except NotADirectoryError:
+        sys.exit('Argument provided is not a directory')
 
     for f in dir_contents:
         if f.lower().endswith(IMAGE_EXTENSIONS):
