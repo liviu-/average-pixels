@@ -33,59 +33,59 @@ The application has 2 modes:
 $ average_pixels download "black cats"
 ```
     
-![black_cats](img/black_cats.jpg)
+![black_cats](images/black_cats.jpg)
 
 ```sh
 $ average_pixels download "green field blue sky"
 ```
     
-![green_field_blue_sky](img/green_field_blue_sky.jpg)
+![green_field_blue_sky](images/green_field_blue_sky.jpg)
 
 ```sh
 $ average_pixels download "just give me some random photo"
 ```
 
-![just_give_me_some_random_photo](img/just_give_me_some_random_photo.jpg)
+![just_give_me_some_random_photo](images/just_give_me_some_random_photo.jpg)
 
 ```sh
 $ average_pixels download "no"
 ```
 
-![no](img/no.jpg)
+![no](images/no.jpg)
 
 ```sh
 $ average_pixels download "insects" --count 30
 ```
 
-![insects](img/insects.jpg)
+![insects](images/insects.jpg)
 
 ```sh
 $ average_pixels local /tmp/average_images --offset 40
 ```
 
-![existing_dir](img/existing_dir.jpg)
+![existing_dir](images/existing_dir.jpg)
 
 ```sh
 $ average_pixels download "turner" --count 20
 ```
 
-![turner](img/turner.jpg)
+![turner](images/turner.jpg)
 
 ```sh
 $ average_pixels download "jackson pollock painting" --count 10 --offset 30
 ```
 
-![jackson_pollock](img/jackson_pollock_painting.jpg)
+![jackson_pollock](images/jackson_pollock_painting.jpg)
 
 ```sh
 $ average_pixels download "green" --count 100
 ```
 
-![green](img/green.jpg)
+![green](images/green.jpg)
 
 ```sh
-$ average_pixels local img/
+$ average_pixels local images/
 ```
 
-![local_dir](img/output.jpg)
+![local_dir](images/output.jpg)
 
