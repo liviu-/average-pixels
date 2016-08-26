@@ -7,14 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 
 ## [1.0.0] - 2016-08-26
 
-## Added
+### Added
 - Running version can be accessed via importing the package in the namespace and checking its `__version__` attribute.
 - Registered and uploaded on PyPI (`$ pip3 install average-pixels`)
 
-## Changed
+### Changed
 - The binary changed name from `average_pixels` to `average-pixels`. Dash is more common among binaries, it's easier to type, and it differentiates between directory and binary.
 
-## Fixed
+### Fixed
 - Output helpful message if directory is a file.
 
 ## [0.1.0]
@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 - Updated API to allow different modes and shared arguments. For more information, `$ average_pixels --help`, `$ average_pixels download --help`, and `$ average_pixels local --help`.
 - In `local` mode, accept only files that end with a predefined extension.
 
-## Fixed
+### Fixed
 - Fixed some bugs with the `local` mode where output value was missing, or trailing slash was missing from the directory name.
 - Output helpful message if:
     - no images found in `local` mode.
