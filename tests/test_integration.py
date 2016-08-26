@@ -3,7 +3,7 @@ import tempfile
 from subprocess import Popen, PIPE, check_output, CalledProcessError, STDOUT
 
 # Extract it from setup.py?
-TOOL = 'average_pixels'
+TOOL = 'average-pixels'
 
 # Test `local`
 arguments = ['local']

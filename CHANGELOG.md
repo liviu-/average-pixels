@@ -8,10 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 ## [1.0.0]
 
 ## Added
-- `__version__` in package's `__init__`
+- Running version can be accessed via importing the package in the namespace and checking its `__version__` attribute.
+
+## Changed
+- The binary changed name from `average_pixels` to `average-pixels`. Dash is more common among binaries, it's easier to type, and it differentiates between directory and binary.
 
 ## Fixed
-- Output helpful message if directory is a file
+- Output helpful message if directory is a file.
 
 ## [0.1.0]
 

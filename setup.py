@@ -12,7 +12,7 @@ def get_version(package_name=package_name, filename=version_file):
     return open(version_path).read().split('=')[-1].strip(' \'"\n')
 
 setup(
-    name='average_pixels',
+    name='average-pixels',
     description='Average pixels from multiple images off Bing Image Search',
     version=get_version(),
     url='https://github.com/liviu-/average-pixels',
@@ -26,6 +26,6 @@ setup(
         'Pillow'
         ],
     entry_points = {
-      "console_scripts": ['average_pixels = average_pixels.average_pixels:main']
+      "console_scripts": ['average-pixels = average_pixels.average_pixels:main']
           },
 )

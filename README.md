@@ -6,7 +6,7 @@ Command line tool which takes a bunch of images, and outputs a JPEG combining th
 
 ```sh
 $ git clone https://github.com/liviu-/average-pixels
-$ pip3 install average_pixels/
+$ pip3 install average-pixels/
 ```
     
 ## Configuration
@@ -30,61 +30,61 @@ The application has 2 modes:
 - `download`: Takes keywords from the user, and combines images from Bing Image Search
 
 ```sh
-$ average_pixels download "black cats"
+$ average-pixels download "black cats"
 ```
     
 ![black_cats](images/black_cats.jpg)
 
 ```sh
-$ average_pixels download "green field blue sky"
+$ average-pixels download "green field blue sky"
 ```
     
 ![green_field_blue_sky](images/green_field_blue_sky.jpg)
 
 ```sh
-$ average_pixels download "just give me some random photo"
+$ average-pixels download "just give me some random photo"
 ```
 
 ![just_give_me_some_random_photo](images/just_give_me_some_random_photo.jpg)
 
 ```sh
-$ average_pixels download "no"
+$ average-pixels download "no"
 ```
 
 ![no](images/no.jpg)
 
 ```sh
-$ average_pixels download "insects" --count 30
+$ average-pixels download "insects" --count 30
 ```
 
 ![insects](images/insects.jpg)
 
 ```sh
-$ average_pixels local /tmp/average_images --offset 40
+$ average-pixels local /tmp/average_images --offset 40
 ```
 
 ![existing_dir](images/existing_dir.jpg)
 
 ```sh
-$ average_pixels download "turner" --count 20
+$ average-pixels download "turner" --count 20
 ```
 
 ![turner](images/turner.jpg)
 
 ```sh
-$ average_pixels download "jackson pollock painting" --count 10 --offset 30
+$ average-pixels download "jackson pollock painting" --count 10 --offset 30
 ```
 
 ![jackson_pollock](images/jackson_pollock_painting.jpg)
 
 ```sh
-$ average_pixels download "green" --count 100
+$ average-pixels download "green" --count 100
 ```
 
 ![green](images/green.jpg)
 
 ```sh
-$ average_pixels local images/
+$ average-pixels local images/
 ```
 
 ![local_dir](images/output.jpg)
