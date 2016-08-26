@@ -14,7 +14,7 @@ def get_args():
        help='file to output the image to')
     parent_parser.add_argument(
         '--offset', '-f', type=int,
-        default=0, help='odd a value to all pixels')
+        default=0, help='add a value to all pixels')
 
     # Local directory parser
     parser_local = subparsers.add_parser(

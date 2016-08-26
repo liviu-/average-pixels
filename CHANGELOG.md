@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/) to the extent that a command line tool can do that.
 
+## [1.0.1dev]
+
+### Fixed
+- Fix typo in `--help` for `--offset`
+
 ## [1.0.0] - 2016-08-26
 
 ### Added
