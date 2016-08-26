@@ -2,11 +2,18 @@
 
 Command line tool which takes a bunch of images, and outputs a JPEG combining the images using a weighted average where the weights are samples drawn from the Dirichlet distribution.
 
+```sh
+$ average-pixels download "party explosions boom" --offset 90 --count 300
+```
+
+![party_explosions_boom](images/party_explosions_boom.jpg)
+
+
+
 ## Installation
 
 ```sh
-$ git clone https://github.com/liviu-/average-pixels
-$ pip3 install average-pixels/
+$ python3 -m pip install average-pixels
 ```
     
 ## Configuration
