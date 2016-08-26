@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/) to the extent that a command line tool can do that.
 
-## [1.0.0]
+## [1.0.0dev]
 
 ## Added
 - Running version can be accessed via importing the package in the namespace and checking its `__version__` attribute.
