@@ -15,6 +15,9 @@ def get_args():
     parent_parser.add_argument(
         '--offset', '-f', type=int,
         default=0, help='add a value to all pixels')
+    parent_parser.add_argument(
+        '--unweighted', '-u', dest='weighted',
+        action='store_true', help='apply ordinary arithmetic mean')
 
     # Local directory parser
     parser_local = subparsers.add_parser(

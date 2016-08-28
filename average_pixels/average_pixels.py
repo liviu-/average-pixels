@@ -20,7 +20,7 @@ OUTPUT_DEFAULT = 'output'
 IMAGE_EXTENSIONS = ('jpg', 'jpeg', 'png')
 
 
-def average_images(filenames):
+def average_images(filenames, weighted=True):
     images = []
     for filename in filenames:
         try:
@@ -31,7 +31,7 @@ def average_images(filenames):
     if not images:
         sys.exit('No images found in the directory')
     resized_images = resize_images(images)
-    weights = np.random.dirichlet(np.ones(len(resized_images)))
+    weights = np.random.dirichlet(np.ones(len(resized_images))) if weighted else None
     return np.average(resized_images, axis=0, weights=weights)
 
 
@@ -81,7 +81,7 @@ def main():
         filenames = get_local_files(args.dir)
     else:
         filenames = save_images(args.terms, args.count)
-    new_image = average_images(filenames)
+    new_image = average_images(filenames, args.weighted)
     new_image = offset_image(new_image, args.offset)
     filename = save_image(new_image, args)
     delete_images()

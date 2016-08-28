@@ -1,6 +1,7 @@
 import os
 import glob
 
+import numpy as np
 import pytest
 
 from average_pixels import average_pixels as ap
@@ -42,4 +43,15 @@ def test_modified_average_images_size_not_square():
 def test_offset_image_over_max_intensity():
     new_intensity = MAX_INTENSITY + 100
     assert ap.offset_image(image, new_intensity).max() <= MAX_INTENSITY
+
+
+def test_unweighted_images_are_the_same_different_runs():
+    unweighted_image_1 = ap.average_images(filenames, weighted=False)
+    unweighted_image_2 = ap.average_images(filenames, weighted=False)
+    assert (unweighted_image_1 == unweighted_image_2).all()
+
+def test_weighted_images_are_differet_different_runs():
+    unweighted_image_1 = ap.average_images(filenames, weighted=True)
+    unweighted_image_2 = ap.average_images(filenames, weighted=True)
+    assert (unweighted_image_1 != unweighted_image_2).all()
 

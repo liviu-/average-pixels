@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/) to the extent that a command line tool can do that.
 
-## [1.0.1dev]
+## [1.1.0dev]
+
+### Added
+- Added an `--unweighted` flag to allow users to apply an unweighted (ordinary) arithmetic mean
 
 ### Fixed
 - Fix typo in `--help` for `--offset`
@@ -39,5 +42,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 
 Initial stable release
 
+[1.1.0dev]: https://github.com/liviu-/average-pixels/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/liviu-/average-pixels/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/liviu-/average-pixels/compare/v0.0.1...v0.1.0
