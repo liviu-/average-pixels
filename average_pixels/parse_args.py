@@ -1,8 +1,15 @@
+import sys
+import os
 import argparse
+
+from .version import __version__
 
 def get_args():
     """Parse command line arguments """
     parser = argparse.ArgumentParser(description="Average multiple images")
+    parser.add_argument(
+        '--version', '-v',
+        action='version', version='%(prog)s {}'.format(__version__))
     subparsers = parser.add_subparsers(dest='mode',
             help='Use images from a local dir or download new images')
     subparsers.required = True

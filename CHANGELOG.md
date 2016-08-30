@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/) to the extent that a command line tool can do that.
 
+## [1.2.0-dev]
+
+### Added
+- Added a `--version` CLI argument 
+
 ## [1.1.0]
 
 ### Added
@@ -42,6 +47,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 
 Initial stable release
 
+[1.2.0-dev] https://github.com/liviu-/average-pixels/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/liviu-/average-pixels/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/liviu-/average-pixels/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/liviu-/average-pixels/compare/v0.0.1...v0.1.0

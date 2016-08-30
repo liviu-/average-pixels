@@ -5,8 +5,7 @@ from subprocess import Popen, PIPE, check_output, CalledProcessError, STDOUT
 # Extract it from setup.py?
 TOOL = 'average-pixels'
 
-# Test `local`
-arguments = ['local']
+from average_pixels.version import __version__
 
 def run_tool(args):
     p = Popen(args, stdout=PIPE, stderr=PIPE)
@@ -45,3 +44,8 @@ def test_fails_when_dir_is_a_file():
     assert p.returncode == 1 
     assert 'not a directory' in stderr.lower()
     os.unlink(f.name)
+
+def test_version_displays_correctly():
+    p, stdout, stderr = run_tool([TOOL, '--version'])
+    assert p.returncode == 0 
+    assert __version__ in stdout
