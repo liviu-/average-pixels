@@ -2,7 +2,6 @@
 
 import os
 import sys
-import argparse
 import shutil
 
 import numpy as np
@@ -11,6 +10,7 @@ import scipy.misc
 from .get_images import save_images
 from .parse_args import get_args
 from . import SAVE_DIR
+
 
 WIDTH = 500
 HEIGHT = 500
@@ -42,19 +42,22 @@ def resize_images(images):
 def save_image(new_image, args):
     output = args.output or '_'.join(args.terms.split()) or OUTPUT_DEFAULT
     filename = '{output_filename}.{ext}'.format(
-            output_filename = output,
-            ext=EXTENSION)
+        output_filename=output,
+        ext=EXTENSION)
     scipy.misc.imsave(filename, new_image)
     return filename
 
+
 def offset_image(image, offset):
     return np.clip(image + offset, 0, MAX_INTENSITY)
+
 
 def delete_images():
     try:
         shutil.rmtree(SAVE_DIR)
     except FileNotFoundError:
         pass
+
 
 def get_local_files(directory):
     """Return only files that may be images
@@ -74,6 +77,7 @@ def get_local_files(directory):
     for f in dir_contents:
         if f.lower().endswith(IMAGE_EXTENSIONS):
             yield os.path.join(directory, f)
+
 
 def main():
     args = get_args()
