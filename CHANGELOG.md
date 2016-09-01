@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 ### Added
 - Added a `--version` CLI argument 
 
+### Fixed
+- Output filename ignores the extension provided by the user to avoid outputs such as "filename.png.jpg" (issue [#11](https://github.com/liviu-/average-pixels/issues/11))
+
 ## [1.1.0]
 
 ### Added
@@ -47,7 +50,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 
 Initial stable release
 
-[1.2.0-dev] https://github.com/liviu-/average-pixels/compare/v1.1.0...HEAD
+[1.2.0-dev]: https://github.com/liviu-/average-pixels/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/liviu-/average-pixels/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/liviu-/average-pixels/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/liviu-/average-pixels/compare/v0.0.1...v0.1.0

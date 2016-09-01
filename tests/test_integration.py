@@ -1,5 +1,7 @@
 import os
+import sys
 import tempfile
+from pathlib import Path
 from subprocess import Popen, PIPE
 
 from average_pixels.version import __version__
@@ -7,6 +9,7 @@ from average_pixels.version import __version__
 
 # Extract it from setup.py?
 TOOL = 'average-pixels'
+IMAGES_DIR = 'images'
 
 
 def run_tool(args):
@@ -14,6 +17,8 @@ def run_tool(args):
     stdout, stderr = (out.decode('utf-8') for out in p.communicate())
     return p, stdout, stderr
 
+def get_images_dir():
+    return str(Path(sys.path[0]).parent / IMAGES_DIR)
 
 def test_fails_with_help_no_args():
     p, stdout, stderr = run_tool(TOOL)
@@ -56,3 +61,14 @@ def test_version_displays_correctly():
     p, stdout, stderr = run_tool([TOOL, '--version'])
     assert p.returncode == 0
     assert __version__ in stdout
+
+def test_output_filename_igores_user_extension():
+    p, stdout, stderr = run_tool(
+        [TOOL, 'local', get_images_dir(), '--output', 'filename.ext'])
+    assert 'ext' not in stdout
+
+def test_output_filename_adds_jpg():
+    p, stdout, stderr = run_tool(
+        [TOOL, 'local', get_images_dir(), '--output', 'filename.ext'])
+    assert 'jpg' in stdout
+

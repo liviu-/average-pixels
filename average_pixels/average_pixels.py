@@ -39,8 +39,8 @@ def resize_images(images):
     return [scipy.misc.imresize(img, (WIDTH, HEIGHT)) for img in images if img.shape]
 
 
-def save_image(new_image, args):
-    output = args.output or '_'.join(args.terms.split()) or OUTPUT_DEFAULT
+def save_image(new_image, filename):
+    output = os.path.splitext(filename)[0]
     filename = '{output_filename}.{ext}'.format(
         output_filename=output,
         ext=EXTENSION)
@@ -87,7 +87,7 @@ def main():
         filenames = save_images(args.terms, args.count)
     new_image = average_images(filenames, args.weighted)
     new_image = offset_image(new_image, args.offset)
-    filename = save_image(new_image, args)
+    filename = save_image(new_image, args.output)
     delete_images()
     print("{} saved in current directory.".format(filename))
 
