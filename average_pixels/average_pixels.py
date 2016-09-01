@@ -2,7 +2,6 @@
 
 import os
 import sys
-import argparse
 import shutil
 
 import numpy as np
@@ -11,6 +10,7 @@ import scipy.misc
 from .get_images import save_images
 from .parse_args import get_args
 from . import SAVE_DIR
+
 
 WIDTH = 500
 HEIGHT = 500
@@ -39,22 +39,25 @@ def resize_images(images):
     return [scipy.misc.imresize(img, (WIDTH, HEIGHT)) for img in images if img.shape]
 
 
-def save_image(new_image, args):
-    output = args.output or '_'.join(args.terms.split()) or OUTPUT_DEFAULT
+def save_image(new_image, filename):
+    output = os.path.splitext(filename)[0]
     filename = '{output_filename}.{ext}'.format(
-            output_filename = output,
-            ext=EXTENSION)
+        output_filename=output,
+        ext=EXTENSION)
     scipy.misc.imsave(filename, new_image)
     return filename
 
+
 def offset_image(image, offset):
     return np.clip(image + offset, 0, MAX_INTENSITY)
+
 
 def delete_images():
     try:
         shutil.rmtree(SAVE_DIR)
     except FileNotFoundError:
         pass
+
 
 def get_local_files(directory):
     """Return only files that may be images
@@ -75,6 +78,7 @@ def get_local_files(directory):
         if f.lower().endswith(IMAGE_EXTENSIONS):
             yield os.path.join(directory, f)
 
+
 def main():
     args = get_args()
     if args.mode == 'local':
@@ -83,9 +87,9 @@ def main():
         filenames = save_images(args.terms, args.count)
     new_image = average_images(filenames, args.weighted)
     new_image = offset_image(new_image, args.offset)
-    filename = save_image(new_image, args)
+    filename = save_image(new_image, args.output)
     delete_images()
-    print("{} saved in current directory.".format(filename))
+    print("{} was created.".format(filename))
 
 if __name__ == '__main__':
     main()

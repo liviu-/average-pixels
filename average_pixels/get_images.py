@@ -9,6 +9,7 @@ URL = 'https://bingapis.azure-api.net/api/v5/images/search'
 API_FILE = '.average_pixels_api'
 API_ENVIRON = 'AVERAGE_PIXELS_API'
 
+
 def search_images(term, count, api_key):
     params = {"q": term, "count": count}
     headers = {'ocp-apim-subscription-key': api_key}
@@ -17,15 +18,17 @@ def search_images(term, count, api_key):
                                 params=params)
     return response.json()['value']
 
+
 def download_image(url, filename):
     urllib.request.urlretrieve(url, filename)
+
 
 def get_api_key():
     try:
         api_key_file = os.path.join(
             os.path.expanduser('~'), API_FILE)
         with open(api_key_file, 'r') as f:
-            api_key = f.read().replace('\n','')
+            api_key = f.read().replace('\n', '')
     except FileNotFoundError:
         try:
             api_key = os.environ[API_ENVIRON]
@@ -47,9 +50,9 @@ def save_images(term, count):
         if img['encodingFormat'] == 'unknown':
             continue
         name = "{path}/{filename}.{ext}".format(
-                path=SAVE_DIR,
-                filename="_".join(term.split()) + str(i),
-                ext=img['encodingFormat'])
+            path=SAVE_DIR,
+            filename="_".join(term.split()) + str(i),
+            ext=img['encodingFormat'])
         try:
             download_image(img['thumbnailUrl'], name)
             filenames.append(name)

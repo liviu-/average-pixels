@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/) to the extent that a command line tool can do that.
 
+## [1.2.0]
+
+### Added
+- Added a `--version` CLI argument 
+
+### Changed
+- Changed the output success message such that it does not refer to the "current directory". The problem was that the user may provide a new path for output, in which case the file is not saved "in the current directory" (issue [#12](https://github.com/liviu-/average-pixels/issues/12))
+
+### Fixed
+- Output filename ignores the extension provided by the user to avoid outputs such as "filename.png.jpg" (issue [#11](https://github.com/liviu-/average-pixels/issues/11))
+
 ## [1.1.0]
 
 ### Added
@@ -42,6 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 
 Initial stable release
 
+[1.2.0]: https://github.com/liviu-/average-pixels/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/liviu-/average-pixels/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/liviu-/average-pixels/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/liviu-/average-pixels/compare/v0.0.1...v0.1.0
