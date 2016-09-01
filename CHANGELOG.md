@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/) to the ext
 ### Added
 - Added a `--version` CLI argument 
 
+### Changed
+- Changed the output success message such that it does not refer to the "current directory". The problem was that the user may provide a new path for output, in which case the file is not saved "in the current directory" (issue [#12](https://github.com/liviu-/average-pixels/issues/12))
+
 ### Fixed
 - Output filename ignores the extension provided by the user to avoid outputs such as "filename.png.jpg" (issue [#11](https://github.com/liviu-/average-pixels/issues/11))
 

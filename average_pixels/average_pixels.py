@@ -89,7 +89,7 @@ def main():
     new_image = offset_image(new_image, args.offset)
     filename = save_image(new_image, args.output)
     delete_images()
-    print("{} saved in current directory.".format(filename))
+    print("{} was created.".format(filename))
 
 if __name__ == '__main__':
     main()
